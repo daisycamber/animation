@@ -25,6 +25,7 @@ function animate(frame){
   image.src = "test.png"
   image.crossOrigin = "Anonymous";
   ctx.drawImage(image,10,10,100,100);
+	ctx.save();
 	return ctx;
 }
 
