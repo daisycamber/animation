@@ -29,7 +29,7 @@ function animate(frame){/*
 	ctx.restore();
 	return ctx;*/
 	var now = new Date();
-	now.setTime(time);
+	now.setTime(frame);
 	var ctx = document.getElementById('canvas').getContext('2d');
 	ctx.save();
 	ctx.fillStyle = 'white'
