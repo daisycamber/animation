@@ -7,7 +7,7 @@
 <video id="awesome" width="150" height="150" controls autoplay loop></video>
 <br>
 Status: <span id="status">Idle</span>
-<a style="display:none" id="download" download="clock.webm">Download WebM</a>
+<a style="display:none" id="download" download="test.webm">Download WebM</a>
 
 <script src="whammy.js"></script>
 <script>
@@ -21,10 +21,10 @@ Status: <span id="status">Idle</span>
 //stolen wholesale off mozilla's wiki
 function animate(frame){
 	var ctx = document.getElementById('canvas').getContext('2d');
-  const image = new Image(60, 45); // Using optional size for image
-  image.src = "test.png"
-  image.crossOrigin = "Anonymous";
-  ctx.drawImage(image,10,10,100,100);
+	const image = new Image(60, 45); // Using optional size for image
+	image.crossOrigin = "Anonymous";
+ 	image.src = "test.png"
+ 	ctx.drawImage(image,10,10,100,100);
 	ctx.save();
 	return ctx;
 }
@@ -37,7 +37,6 @@ var progress = document.getElementById('progress');
 function nextFrame(){
 	progress.value++;
 	var context = animate(progress.value);
-
 	video.add(context);
 	if(progress.value / progress.max < 1){
 		requestAnimationFrame(nextFrame);
