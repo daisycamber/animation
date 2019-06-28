@@ -1,9 +1,26 @@
-<canvas id="mycanvas" width="200" height="100"></canvas>
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script src='//js.zapjs.com/js/download.js'></script>
+	</head>
+	
+	<body>
+		<canvas id="mycanvas" width="200" height="100"></canvas>
+		<h1>Download Image File Demo</h1>
+		<script>
+			download("hello world", "dlText.txt", "text/plain");
+			var canvas = document.getElementById("mycanvas");
+			var ctx = canvas.getContext("2d");
+			ctx.moveTo(0, 0);
+			ctx.lineTo(200, 100);
+			ctx.stroke();
+			var image = canvas.toDataURL("image/png");
+		</script>
+	</body>
+
+</html>
+
 <script>
-	var canvas = document.getElementById("mycanvas");
-	var ctx = canvas.getContext("2d");
-	ctx.moveTo(0, 0);
-	ctx.lineTo(200, 100);
-	ctx.stroke();
-	var image = canvas.toDataURL("image/png");
+	
 </script>
