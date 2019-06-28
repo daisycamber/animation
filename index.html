@@ -15,8 +15,9 @@
 				ctx.moveTo(0, 0);
 				ctx.lineTo(3000, 300 * 10);
 				ctx.stroke();
+				ctx.save();
 				var image = canvas.toDataURL("image/png");
-				download(image, "%i.png", "image/png");
+				download(image, i + ".png", "image/png");
 			}
 			
 			
