@@ -1,73 +1,9 @@
-<style>
-* {font-family: sans-serif;}
-</style>
-<progress id="progress" value="0" max="600" min="0" style="width: 300px"></progress>
-<br>
-<canvas id="canvas" width="150" height="150"></canvas>
-<video id="awesome" width="150" height="150" controls autoplay loop></video>
-<br>
-Status: <span id="status">Idle</span>
-<a style="display:none" id="download" download="test.webm">Download WebM</a>
-
-<script src="whammy.js"></script>
+<canvas id="mycanvas" width="200" height="100"></canvas>
 <script>
-// use requestanimation frame, woo!
-(function() {
-  var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
-                              window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
-  window.requestAnimationFrame = requestAnimationFrame;
-})();
-
-//stolen wholesale off mozilla's wiki
-function animate(frame){/*
-	var ctx = document.getElementById('canvas').getContext('2d');
-	*/
-	var now = new Date();
-	now.setTime(frame);
-	var ctx = document.getElementById('canvas').getContext('2d');
-	ctx.save();
-	const image = new Image(60, 45); // Using optional size for image
-	image.crossOrigin = "Anonymous";
- 	image.src = "test.png"
- 	ctx.drawImage(image,10,10,100,100);
-	ctx.save();
-	ctx.restore();
-	return ctx;
-}
-
-// the actual demo code, yaaay
-var last_time = +new Date;
-var video = new Whammy.Video(60);
-var progress = document.getElementById('progress');
-
-function nextFrame(){
-	progress.value++;
-	var context = animate(progress.value);
-	video.add(context);
-	if(progress.value / progress.max < 1){
-		requestAnimationFrame(nextFrame);
-		document.getElementById('status').innerHTML = "Drawing Frames";
-	}else{
-		document.getElementById('status').innerHTML = "Compiling Video";
-		requestAnimationFrame(finalizeVideo); // well, should probably use settimeout instead
-	}
-
-}
-
-function finalizeVideo(){
-	var start_time = +new Date;
-	video.compile(false, function(output){
-
-		var end_time = +new Date;
-		var url = webkitURL.createObjectURL(output);
-
-		document.getElementById('awesome').src = url; //toString converts it to a URL via Object URLs, falling back to DataURL
-		document.getElementById('download').style.display = '';
-		document.getElementById('download').href = url;
-		document.getElementById('status').innerHTML = "Compiled Video in " + (end_time - start_time) + "ms, file size: " + Math.ceil(output.size / 1024) + "KB";
-
-	});
-}
-
-nextFrame();
+	var canvas = document.getElementById("mycanvas");
+	var ctx = canvas.getContext("2d");
+	ctx.moveTo(0, 0);
+	ctx.lineTo(200, 100);
+	ctx.stroke();
+	var image = canvas.toDataURL("image/png");
 </script>
