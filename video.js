@@ -20,11 +20,11 @@ function preload ()
 function create ()
 {
     
-var img = this.add.image(400, 300, 'test');
+    var img = this.add.image(400, 300, 'test');
     img.width = 800;
-    var canvas = document.getElementById("canvas");
-    var img    = canvas.toDataURL("image/png");
-    download(img, "test.png", "image/png");
+    var image    = this.game.canvas.toDataURL("image/png");
+    
+    download(image, "test.png", "image/png");
 }
 
 function update ()
