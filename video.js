@@ -21,7 +21,7 @@ function create ()
 {
     
     var img = this.add.image(400, 300, 'test');
-    img.width = 800;
+    img.width = 200;
     var image    = this.game.canvas.toDataURL("image/png");
     
     download(image, "test.png", "image/png");
