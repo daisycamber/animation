@@ -12,7 +12,7 @@
 			var canvas = document.getElementById("mycanvas");
 			var ctx = canvas.getContext("2d");
 			for (i = 0; i < 10; i++) {
-				ctx.drawImage(new Image("image.png"), 10, 10);
+				ctx.drawImage(new Image("test.png"), 10, 10);
 				var image = canvas.toDataURL("image/png");
 				download(image, i + ".png", "image/png");
 			}
