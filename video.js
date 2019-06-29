@@ -1,7 +1,7 @@
 var config = {
     type: Phaser.CANVAS,
-    width: 800,
-    height: 600,
+    width: 3000,
+    height: 3000,
     scene: {
         preload: preload,
         create: create,
