@@ -21,11 +21,17 @@ function create ()
 {
     var img = this.add.image(400, 400, 'test');
     img.width = 200;
-    var r1 = this.add.circle(200, 200, 80, 0x6666ff);
-    var image    = this.game.canvas.toDataURL();
-    download(image, "test.png", "image/png");
+    var r1 =
+    
 }
-
+var i = 0;
 function update ()
 {
+    
+    if(i < 10){
+         this.add.circle(200 * i, 200, 80, 0x6666ff);
+        var image    = this.game.canvas.toDataURL();
+        download(image, "test.png", "image/png");
+        i++;
+    }
 }
