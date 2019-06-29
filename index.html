@@ -25,6 +25,7 @@
 			    var bitmap = new createjs.Bitmap(image);
 			    stage.addChild(bitmap);
 			    stage.update();
+				var canvas = document.getElementById('mycanvas');
 				var image = canvas.toDataURL("image/png");
 				download(image, i + ".png", "image/png");
 			}		
