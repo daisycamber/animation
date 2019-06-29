@@ -22,7 +22,7 @@ var img = this.add.image(400, 300, 'test');
     img.width = 800;
     var canvas = document.getElementById("canvas");
     var img    = canvas.toDataURL("image/png");
-    document.write('<img src="'+img+'"/>');
+    download(img, "test.png", "image/png");
 }
 
 function update ()
