@@ -20,14 +20,14 @@ function preload ()
 function create ()
 {
 }
-var i = 0;
+var frame = 0;
 function update ()
 {
     
     if(i < 10){
-         this.add.circle(200 * i, 200, 80, 0x6666ff);
+         this.add.circle(200 * (frame+1), 200, 80, 0x6666ff);
         var image    = this.game.canvas.toDataURL();
-        download(image, "test.png", "image/png");
+        download(image, frame + ".png", "image/png");
         i++;
     }
 }
