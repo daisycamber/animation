@@ -3,36 +3,14 @@
 	<head>
 		<meta charset="UTF-8">
 		<script src='//js.zapjs.com/js/download.js'></script>
-		<script src="https://cdn.jsdelivr.net/npm/createjs@1.0.1/builds/1.0.0/createjs.min.js"></script>
+		<script src="https://github.com/photonstorm/phaser/releases/download/v3.18.1/phaser.min.js"></script>
+		<script src="video.js"></script>
 	</head>
 	
 	<body onload="init();">
 		<canvas id="mycanvas" width="3000" height="3000"></canvas>
 		<h1>Download Image File Demo</h1>
-		<script>
-			var stage;
-
-			function init() {
-			    stage = new createjs.Stage("mycanvas");
-
-			    var image = new Image();
-			    image.src = "test.png";
-			    image.onload = handleImageLoad;
-			}
-
-			function handleImageLoad(event) {
-				var image = event.target;
-				var sb = new createjs.ScaleBitmap("test.png", new createjs.Rectangle(12, 12, 5, 10));
-				sb.setDrawSize(200, 100); // Set an initial draw size.
-				stage.addChild(sb); // Add to stage
-			    	stage.update();
-				var canvas = document.getElementById('mycanvas');
-				var image = canvas.toDataURL("image/png");
-				var i = 0;
-				download(image, i + ".png", "image/png");
-			}		
-			
-		</script>
+		
 	</body>
 
 </html>
