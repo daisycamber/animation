@@ -6,22 +6,28 @@
 		<script src="https://cdn.jsdelivr.net/npm/createjs@1.0.1/builds/1.0.0/createjs.min.js"></script>
 	</head>
 	
-	<body>
+	<body onload="init();">
 		<canvas id="mycanvas" width="3000" height="3000"></canvas>
 		<h1>Download Image File Demo</h1>
 		<script>
-			var canvas = document.getElementById("mycanvas");
-			var ctx = canvas.getContext("2d");
-			for (i = 0; i < 10; i++) {
-				var image = new Image(1000,1000);
-				image.src = "test.png";
-				ctx.drawImage(image, 1000, 1000);
-				ctx.save();
+			var stage;
+
+			function init() {
+			    stage = new createjs.Stage("myCanvas");
+
+			    var image = new Image();
+			    image.src = "test.png";
+			    image.onload = handleImageLoad;
+			}
+
+			function handleImageLoad(event) {
+			    var image = event.target;
+			    var bitmap = new createjs.Bitmap(image);
+			    stage.addChild(bitmap);
+			    stage.update();
 				var image = canvas.toDataURL("image/png");
 				download(image, i + ".png", "image/png");
-			}
-			
-			
+			}		
 			
 		</script>
 	</body>
