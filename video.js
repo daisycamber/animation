@@ -24,10 +24,10 @@ var frame = 0;
 function update ()
 {
     
-    if(i < 10){
+    if(frame < 10){
          this.add.circle(200 * (frame+1), 200, 80, 0x6666ff);
         var image    = this.game.canvas.toDataURL();
         download(image, frame + ".png", "image/png");
-        i++;
+        frame++;
     }
 }
