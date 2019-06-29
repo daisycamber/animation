@@ -19,10 +19,6 @@ function preload ()
 
 function create ()
 {
-    var img = this.add.image(400, 400, 'test');
-    img.width = 200;
-    var r1 =
-    
 }
 var i = 0;
 function update ()
