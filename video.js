@@ -14,16 +14,14 @@ var game = new Phaser.Game(config);
 function preload ()
 {
     this.game.canvas.id = 'canvas';
-  this.load.image('test', 'test.png');
+    this.load.image('test', 'test.png');
 }
 
 function create ()
 {
-    
-    var img = this.add.image(400, 300, 'test');
+    var img = this.add.image(400, 400, 'test');
     img.width = 200;
     var image    = this.game.canvas.toDataURL("image/png");
-    
     download(image, "test.png", "image/png");
 }
 
