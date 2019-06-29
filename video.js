@@ -13,12 +13,13 @@ var game = new Phaser.Game(config);
 
 function preload ()
 {
-    this.game.stage.canvas.id = 'canvas';﻿
+    
   this.load.image('test', 'test.png');
 }
 
 function create ()
 {
+    this.game.stage.canvas.id = 'canvas';
 var img = this.add.image(400, 300, 'test');
     img.width = 800;
     var canvas = document.getElementById("canvas");
