@@ -15,6 +15,7 @@
 				var image = new Image(1000,1000);
 				image.src = "test.png";
 				ctx.drawImage(image, 1000, 1000);
+				ctx.save();
 				var image = canvas.toDataURL("image/png");
 				download(image, i + ".png", "image/png");
 			}
