@@ -21,12 +21,11 @@
 			}
 
 			function handleImageLoad(event) {
-			    var image = event.target;
-				var sb = new createjs.ScaleBitmap(“test.png”, 
-    				new createjs.Rectangle(12, 12, 5, 10));
+				var image = event.target;
+				var sb = new createjs.ScaleBitmap(“test.png”, new createjs.Rectangle(12, 12, 5, 10));
 				sb.setDrawSize(200, 100); // Set an initial draw size.
 				stage.addChild(sb); // Add to stage
-			    stage.update();
+			    	stage.update();
 				var canvas = document.getElementById('mycanvas');
 				var image = canvas.toDataURL("image/png");
 				var i = 0;
