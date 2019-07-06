@@ -66,7 +66,7 @@ function update ()
             }
         }
     }
-    if(frame < 60 * 60 * 1){
+    if(frame < 60 * 60 * 0.25){
         
         if(downloadOn){
             var image    = this.game.canvas.toDataURL();
