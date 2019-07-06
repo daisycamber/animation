@@ -22,6 +22,7 @@ function preload ()
     this.load.image('test', 'test.png');
     
 }
+var currentRing = 0;
 var rings = [];// .depth = NUMBER
 var circles = [];
 function create ()
@@ -44,16 +45,19 @@ var lastBeat = 0;
 function update ()
 {
     if(frame > lastBeat + fpb) {
+        // bring last ring to front
+        
         for(var i = 0; i < circles.length; i++){
             circles[i].y=height/2;
             circles[i].xv = Phaser.Math.Between(-maxParticleSpeed,maxParticleSpeed);
             circles[i].yv = Phaser.Math.Between(-maxParticleSpeed,maxParticleSpeed);
-            rings[i].radius = rings[i].radius + 5;
+            
         }
         lastBeat = frame;
     }
     else{
         for(var i = 0; i < circles.length; i++){
+            rings[i].radius = rings[i].radius + 5; // Make ring bigger
             circles[i].x+=circles[i].xv;
             circles[i].y+=circles[i].yv;
             if(circles[i].y>height+50){
