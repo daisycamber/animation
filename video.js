@@ -43,23 +43,26 @@ function update ()
         }
         lastBeat = frame;
     }
-    if(frame < 30 * 60 * 3){
+    else{
         for(var i = 0; i < circles.length; i++){
             circles[i].x+=circles[i].xv;
             circles[i].y+=circles[i].yv;
-            if(circles[i].y>3000+20){
-                circles[i].y=-20;
+            if(circles[i].y>3000+50){
+                circles[i].y=-50;
             }
-            if(circles[i].y<20){
-                circles[i].y=3020;
+            if(circles[i].y<-50){
+                circles[i].y=3050;
             }
-            if(circles[i].x>3000+20){
-                circles[i].x=-20;
+            if(circles[i].x>3000+50){
+                circles[i].x=-50;
             }
-            if(circles[i].x<20){
-                circles[i].x=3020;
+            if(circles[i].x<-50){
+                circles[i].x=3050;
             }
         }
+    }
+    if(frame < 30 * 60 * 3){
+        
         if(downloadOn){
             var image    = this.game.canvas.toDataURL();
             download(image, frame + ".png", "image/png");
