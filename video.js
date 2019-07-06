@@ -17,12 +17,12 @@ function preload ()
     this.load.image('test', 'test.png');
     
 }
-var maxParticleSpeed = 20;
+var maxParticleSpeed = 100;
 var circles = [];
 function create ()
 {
     for(var i = 0; i < 1000; i++){
-        circles[i] = this.add.circle(Phaser.Math.Between(0, 3000), Phaser.Math.Between(0, 3000), Phaser.Math.Between(1,20), 0x6666ff);
+        circles[i] = this.add.circle(Phaser.Math.Between(0, 3000), Phaser.Math.Between(0, 3000), Phaser.Math.Between(1,100), 0xffffff);
         circles[i].xv = Phaser.Math.Between(-maxParticleSpeed,maxParticleSpeed);
         circles[i].yv = Phaser.Math.Between(-maxParticleSpeed,maxParticleSpeed);
     }
@@ -30,7 +30,7 @@ function create ()
 var frame = 0;
 var downloadOn = true;
 // for EDM visualization
-var bpm = 100;
+var bpm = 126;
 var bps = 100/60 // beats per second
 var bpf = 100/30// beats per frame
 var lastBeat = 0;
