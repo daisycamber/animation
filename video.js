@@ -1,10 +1,11 @@
 var minParticleSize = 1;
 var maxParticleSize = 50;
 var maxParticleSpeed = 10;
+var size = 3000;
 var config = {
     type: Phaser.CANVAS,
-    width: 1920,
-    height: 1080,
+    width: size,
+    height: size,
     scene: {
         preload: preload,
         create: create,
@@ -25,7 +26,7 @@ var circles = [];
 function create ()
 {
     for(var i = 0; i < 126; i++){
-        circles[i] = this.add.circle(Phaser.Math.Between(0, 1920), 1080/2, Phaser.Math.Between(minParticleSize,maxParticleSize),"0x"+Phaser.Math.Between(0xCCCCCC,0xFFFFFF).toString(16));
+        circles[i] = this.add.circle(Phaser.Math.Between(0, size), size/2, Phaser.Math.Between(minParticleSize,maxParticleSize),"0x"+Phaser.Math.Between(0xCCCCCC,0xFFFFFF).toString(16));
         circles[i].xv = Phaser.Math.Between(-maxParticleSpeed,maxParticleSpeed);
         circles[i].yv = Phaser.Math.Between(-maxParticleSpeed,maxParticleSpeed);
     }
@@ -42,7 +43,7 @@ function update ()
 {
     if(frame > lastBeat + fpb) {
         for(var i = 0; i < circles.length; i++){
-            circles[i].y=1080/2;
+            circles[i].y=size/2;
             circles[i].xv = Phaser.Math.Between(-maxParticleSpeed,maxParticleSpeed);
             circles[i].yv = Phaser.Math.Between(-maxParticleSpeed,maxParticleSpeed);
         }
@@ -52,17 +53,17 @@ function update ()
         for(var i = 0; i < circles.length; i++){
             circles[i].x+=circles[i].xv;
             circles[i].y+=circles[i].yv;
-            if(circles[i].y>1080+50){
+            if(circles[i].y>size+50){
                 circles[i].y=-50;
             }
             if(circles[i].y<-50){
-                circles[i].y=1080+50;
+                circles[i].y=size+50;
             }
-            if(circles[i].x>1920+50){
+            if(circles[i].x>size+50){
                 circles[i].x=-50;
             }
             if(circles[i].x<-50){
-                circles[i].x=1920 + 50;
+                circles[i].x=size + 50;
             }
         }
     }
