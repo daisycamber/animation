@@ -1,11 +1,12 @@
 var minParticleSize = 1;
 var maxParticleSpeed = 10;
-var size = 3000;
-var maxParticleSize = size/30;
+var width = 3000;
+var height = 3000 * (9/16)
+var maxParticleSize = width/30;
 var config = {
     type: Phaser.CANVAS,
-    width: size,
-    height: size,
+    width: width,
+    height: height,
     scene: {
         preload: preload,
         create: create,
@@ -26,7 +27,7 @@ var circles = [];
 function create ()
 {
     for(var i = 0; i < 200; i++){
-        circles[i] = this.add.circle(Phaser.Math.Between(0, size), size/2, Phaser.Math.Between(minParticleSize,maxParticleSize),"0x"+Phaser.Math.Between(0xCCCCCC,0xFFFFFF).toString(16));
+        circles[i] = this.add.circle(Phaser.Math.Between(0, size), height/2, Phaser.Math.Between(minParticleSize,maxParticleSize),"0x"+Phaser.Math.Between(0xCCCCCC,0xFFFFFF).toString(16));
         circles[i].xv = Phaser.Math.Between(-maxParticleSpeed,maxParticleSpeed);
         circles[i].yv = Phaser.Math.Between(-maxParticleSpeed,maxParticleSpeed);
     }
@@ -53,21 +54,21 @@ function update ()
         for(var i = 0; i < circles.length; i++){
             circles[i].x+=circles[i].xv;
             circles[i].y+=circles[i].yv;
-            if(circles[i].y>size+50){
+            if(circles[i].y>height+50){
                 circles[i].y=-50;
             }
             if(circles[i].y<-50){
-                circles[i].y=size+50;
+                circles[i].y=height+50;
             }
-            if(circles[i].x>size+50){
+            if(circles[i].x>width+50){
                 circles[i].x=-50;
             }
             if(circles[i].x<-50){
-                circles[i].x=size + 50;
+                circles[i].x=width + 50;
             }
         }
     }
-    if(frame < 60 * 60 * 0.25){
+    if(frame < 60 * 60 * 3){
         
         if(downloadOn){
             var image    = this.game.canvas.toDataURL();
