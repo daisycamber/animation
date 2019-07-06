@@ -46,7 +46,10 @@ function update ()
 {
     if(frame > lastBeat + fpb) {
         // bring last ring to front
-        
+        rings[currentRing].width = 100;
+        rings[currentRing].depth = 0;
+        currentRing++;
+        if(currentRing > 199) currentRing = 0;
         for(var i = 0; i < circles.length; i++){
             circles[i].y=height/2;
             circles[i].xv = Phaser.Math.Between(-maxParticleSpeed,maxParticleSpeed);
