@@ -1,7 +1,7 @@
 var minParticleSize = 1;
-var maxParticleSize = 50;
 var maxParticleSpeed = 10;
 var size = 3000;
+var maxParticleSize = size/30;
 var config = {
     type: Phaser.CANVAS,
     width: size,
@@ -25,7 +25,7 @@ function preload ()
 var circles = [];
 function create ()
 {
-    for(var i = 0; i < 126; i++){
+    for(var i = 0; i < 200; i++){
         circles[i] = this.add.circle(Phaser.Math.Between(0, size), size/2, Phaser.Math.Between(minParticleSize,maxParticleSize),"0x"+Phaser.Math.Between(0xCCCCCC,0xFFFFFF).toString(16));
         circles[i].xv = Phaser.Math.Between(-maxParticleSpeed,maxParticleSpeed);
         circles[i].yv = Phaser.Math.Between(-maxParticleSpeed,maxParticleSpeed);
