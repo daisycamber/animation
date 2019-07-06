@@ -31,13 +31,14 @@ var frame = 0;
 var downloadOn = true;
 // for EDM visualization
 var bpm = 126;
-var bps = 100/60 // beats per second
-var bpf = 100/30// beats per frame
+var bps = 126/60 // beats per second
+var bpf = 126/30// beats per frame
+var fpb = (60*30)/126; // frames per beat
 var lastBeat = 0;
 function update ()
 {
     console.log(frame);
-    if(frame > lastBeat + bpf) {
+    if(frame > lastBeat + fpb) {
         for(var i = 0; i < circles.length; i++){
             circles[i].y=1500;
         }
