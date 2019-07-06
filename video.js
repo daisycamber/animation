@@ -33,7 +33,7 @@ function update ()
     console.log(game.loop.actualFps);
     if(frame < 60 * 60){
         for(var i = 0; i < circles.length; i++){
-            circles[i].y+=(21 - circles[i].width)/5
+            circles[i].y+=(circles[i].width-20)/5
             circles[i].x+=circles[i].xv;
             if(circles[i].y>3000+20){
                 circles[i].y=-20;
