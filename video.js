@@ -40,17 +40,13 @@ var downloadOn = false;
 var bpm = 126;
 var bps = 126/60 // beats per second
 var bpf = 126/30// beats per frame
-var fpb = (60*60)/126; // frames per beat
+var fpb = (60*60)/bpm; // frames per beat
 var lastBeat = 0;
 function update ()
 {
     if(frame > lastBeat + fpb) {
-        // bring last ring to front
-        rings[currentRing].radius=50;
-        rings[currentRing].depth-=1;
-        currentRing++;
-        if(currentRing > 199) currentRing = 0;
         for(var i = 0; i < circles.length; i++){
+            rings[i].radius=50 + (5 * i);
             circles[i].y=height/2;
             circles[i].xv = Phaser.Math.Between(-maxParticleSpeed,maxParticleSpeed);
             circles[i].yv = Phaser.Math.Between(-maxParticleSpeed,maxParticleSpeed);
