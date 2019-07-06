@@ -35,7 +35,7 @@ function create ()
     }
 }
 var frame = 0;
-var downloadOn = false;
+var downloadOn = true;
 // for EDM visualization
 var bpm = 126;
 var bps = 126/60 // beats per second
