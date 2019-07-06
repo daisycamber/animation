@@ -22,7 +22,7 @@ var circles = [];
 function create ()
 {
     for(var i = 0; i < 200; i++){
-        circles[i] = this.add.circle(Phaser.Math.Between(0, 3000), 1500, Phaser.Math.Between(1,50), '#'+(Math.random()*0xFFFFFF<<0).toString(16));
+        circles[i] = this.add.circle(Phaser.Math.Between(0, 3000), 1500, Phaser.Math.Between(1,50),(Math.random()*0xffffff<<0).toString(16));
         circles[i].xv = Phaser.Math.Between(-maxParticleSpeed,maxParticleSpeed);
         circles[i].yv = Phaser.Math.Between(-maxParticleSpeed,maxParticleSpeed);
     }
