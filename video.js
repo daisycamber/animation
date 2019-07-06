@@ -10,7 +10,6 @@ var config = {
         create: create,
         update: update
     },
-    fps: 30
 };
 
 var game = new Phaser.Game(config);
@@ -37,7 +36,7 @@ var downloadOn = false;
 var bpm = 126;
 var bps = 126/60 // beats per second
 var bpf = 126/30// beats per frame
-var fpb = (60*30)/126; // frames per beat
+var fpb = (60*60)/126; // frames per beat
 var lastBeat = 0;
 function update ()
 {
