@@ -48,7 +48,7 @@ function update ()
             circles[i].y=height/2;
             circles[i].xv = Phaser.Math.Between(-maxParticleSpeed,maxParticleSpeed);
             circles[i].yv = Phaser.Math.Between(-maxParticleSpeed,maxParticleSpeed);
-            rings[i].width = rings[i].width + 5;
+            rings[i].radius = rings[i].radius + 5;
         }
         lastBeat = frame;
     }
