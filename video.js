@@ -43,7 +43,7 @@ function update ()
         }
         lastBeat = frame;
     }
-    if(frame < 60 * 60){
+    if(frame < 30 * 60 * 3){
         for(var i = 0; i < circles.length; i++){
             circles[i].x+=circles[i].xv;
             circles[i].y+=circles[i].yv;
