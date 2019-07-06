@@ -47,6 +47,7 @@ function update ()
     if(frame > lastBeat + fpb) {
         for(var i = 0; i < circles.length; i++){
             rings[i].radius=50 + (5 * i);
+            rings[i].depth = rings.length - i;
             circles[i].y=height/2;
             circles[i].xv = Phaser.Math.Between(-maxParticleSpeed,maxParticleSpeed);
             circles[i].yv = Phaser.Math.Between(-maxParticleSpeed,maxParticleSpeed);
