@@ -22,6 +22,7 @@ function create ()
 {
     for(var i = 0; i < 1000; i++){
         circles[i] = this.add.circle(Phaser.Math.Between(0, 3000), Phaser.Math.Between(0, 3000), Phaser.Math.Between(1,20), 0x6666ff);
+        circles[i].xv = Phaser.Math.Between(-5,5);
     }
 }
 var frame = 0;
@@ -32,8 +33,8 @@ function update ()
     console.log(game.loop.actualFps);
     if(frame < 60 * 60){
         for(var i = 0; i < circles.length; i++){
-            circles[i].y+=1
-            circles[i].x+=Phaser.Math.Between(-1,1);
+            circles[i].y+=(21 - circles[i].width)/5
+            circles[i].x+=circles[i].xv;
             if(circles[i].y>3000+20){
                 circles[i].y=-20;
             }
