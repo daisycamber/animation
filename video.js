@@ -21,13 +21,16 @@ function create ()
 {
 }
 var frame = 0;
+var downloadOn = false;
 function update ()
 {
     
     if(frame < 10){
-         this.add.circle(200 * (frame+1), 200, 80, 0x6666ff);
-        var image    = this.game.canvas.toDataURL();
-        download(image, frame + ".png", "image/png");
+         this.add.circle(Phaser.Math.Between(0, 3000), Phaser.Math.Between(0, 3000), 80, 0x6666ff);
+        if(downloadOn){
+            var image    = this.game.canvas.toDataURL();
+            download(image, frame + ".png", "image/png");
+        }
         frame++;
     }
 }
