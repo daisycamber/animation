@@ -20,7 +20,7 @@ function preload ()
 var circles = [];
 function create ()
 {
-    for(var i = 0; i < 100; i++){
+    for(var i = 0; i < 1000; i++){
         circles[i] = this.add.circle(Phaser.Math.Between(0, 3000), Phaser.Math.Between(0, 3000), Phaser.Math.Between(1,20), 0x6666ff);
     }
 }
@@ -29,7 +29,7 @@ var downloadOn = false;
 
 function update ()
 {
-    if(frame < 60 * 100){
+    if(frame < 60 * 60){
         for(var i = 0; i < circles.length; i++){
             circles[i].y+=Phaser.Math.Between(1,3);
             circles[i].y+=Phaser.Math.Between(-1,1);
