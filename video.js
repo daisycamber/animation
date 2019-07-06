@@ -22,7 +22,7 @@ function create ()
 }
 var frame = 0;
 var downloadOn = false;
-var circles = new Array();
+var circles = [];
 function update ()
 {
     
