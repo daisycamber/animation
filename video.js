@@ -32,8 +32,8 @@ function update ()
     console.log(game.loop.actualFps);
     if(frame < 60 * 60){
         for(var i = 0; i < circles.length; i++){
-            circles[i].y+=Phaser.Math.Between(1,3);
-            circles[i].y+=Phaser.Math.Between(-1,1);
+            circles[i].y+=1
+            circles[i].x+=Phaser.Math.Between(-1,1);
             if(circles[i].y>3000+20){
                 circles[i].y=-20;
             }
