@@ -26,7 +26,7 @@ var circles = [];
 function create ()
 {
     for(var i = 0; i < 126; i++){
-        circles[i] = this.add.circle(Phaser.Math.Between(0, 3000), 1500, Phaser.Math.Between(minParticleSize,maxParticleSize),"0x"+Phaser.Math.Between(0xCCCCCC,0xFFFFFF).toString(16));
+        circles[i] = this.add.circle(Phaser.Math.Between(0, 1920), 1080/2, Phaser.Math.Between(minParticleSize,maxParticleSize),"0x"+Phaser.Math.Between(0xCCCCCC,0xFFFFFF).toString(16));
         circles[i].xv = Phaser.Math.Between(-maxParticleSpeed,maxParticleSpeed);
         circles[i].yv = Phaser.Math.Between(-maxParticleSpeed,maxParticleSpeed);
     }
@@ -43,7 +43,7 @@ function update ()
 {
     if(frame > lastBeat + fpb) {
         for(var i = 0; i < circles.length; i++){
-            circles[i].y=1500;
+            circles[i].y=1080/2;
             circles[i].xv = Phaser.Math.Between(-maxParticleSpeed,maxParticleSpeed);
             circles[i].yv = Phaser.Math.Between(-maxParticleSpeed,maxParticleSpeed);
         }
