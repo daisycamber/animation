@@ -1,3 +1,6 @@
+var minParticleSize = 1;
+var maxParticleSize = 100;
+var maxParticleSpeed = 25;
 var config = {
     type: Phaser.CANVAS,
     width: 3000,
@@ -17,12 +20,12 @@ function preload ()
     this.load.image('test', 'test.png');
     
 }
-var maxParticleSpeed = 25;
+
 var circles = [];
 function create ()
 {
-    for(var i = 0; i < 500; i++){
-        circles[i] = this.add.circle(Phaser.Math.Between(0, 3000), 1500, Phaser.Math.Between(1,50),(Math.random()*0xFFFFFF<<0xCCCCCC).toString(16));
+    for(var i = 0; i < 100; i++){
+        circles[i] = this.add.circle(Phaser.Math.Between(0, 3000), 1500, Phaser.Math.Between(minParticleSize,maxParticleSize),(Math.random()*0xFFFFFF<<0xCCCCCC).toString(16));
         circles[i].xv = Phaser.Math.Between(-maxParticleSpeed,maxParticleSpeed);
         circles[i].yv = Phaser.Math.Between(-maxParticleSpeed,maxParticleSpeed);
     }
