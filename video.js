@@ -53,17 +53,17 @@ function update ()
         for(var i = 0; i < circles.length; i++){
             circles[i].x+=circles[i].xv;
             circles[i].y+=circles[i].yv;
-            if(circles[i].y>3000+50){
+            if(circles[i].y>1080+50){
                 circles[i].y=-50;
             }
             if(circles[i].y<-50){
-                circles[i].y=3050;
+                circles[i].y=1080+50;
             }
-            if(circles[i].x>3000+50){
+            if(circles[i].x>1920+50){
                 circles[i].x=-50;
             }
             if(circles[i].x<-50){
-                circles[i].x=3050;
+                circles[i].x=1920 + 50;
             }
         }
     }
