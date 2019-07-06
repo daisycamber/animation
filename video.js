@@ -25,7 +25,7 @@ function create ()
     }
 }
 var frame = 0;
-var downloadOn = false;
+var downloadOn = true;
 
 function update ()
 {
