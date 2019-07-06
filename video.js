@@ -26,23 +26,34 @@ function create ()
     }
 }
 var frame = 0;
-var downloadOn = true;
-
+var downloadOn = false;
+// for EDM visualization
+var bpm = 100;
+var bps = 100/60 // beats per second
+var lastElapsedSeconds = 0;
 function update ()
 {
-    console.log(game.loop.actualFps);
-    if(frame < 60 * 60){
+    if(this.game.time.totalElapsedSeconds() - lastElapsedSeconds > bps) {
         for(var i = 0; i < circles.length; i++){
-            circles[i].y+=(circles[i].width-20)/5
-            circles[i].x+=circles[i].xv;
-            if(circles[i].y>3000+20){
-                circles[i].y=-20;
+                circles[i].y=1500;
             }
         }
-        if(downloadOn){
-            var image    = this.game.canvas.toDataURL();
-            download(image, frame + ".png", "image/png");
+        lastElapsedSeconds = this.game.time.totalElapsedSeconds()
+    }
+    else {  
+        if(frame < 60 * 60){
+            for(var i = 0; i < circles.length; i++){
+                circles[i].y+=(circles[i].width-20)/5
+                circles[i].x+=circles[i].xv;
+                if(circles[i].y>3000+20){
+                    circles[i].y=-20;
+                }
+            }
+            if(downloadOn){
+                var image    = this.game.canvas.toDataURL();
+                download(image, frame + ".png", "image/png");
+            }
+            frame++;
         }
-        frame++;
     }
 }
