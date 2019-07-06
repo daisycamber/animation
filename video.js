@@ -15,7 +15,7 @@ function preload ()
 {
     this.game.canvas.id = 'canvas';
     this.load.image('test', 'test.png');
-    var clock = new Phaser.Time.Clock();
+    
 }
 
 var circles = [];
@@ -25,6 +25,7 @@ function create ()
         circles[i] = this.add.circle(Phaser.Math.Between(0, 3000), Phaser.Math.Between(0, 3000), Phaser.Math.Between(1,20), 0x6666ff);
         circles[i].xv = Phaser.Math.Between(-2,2);
     }
+    var clock = new Phaser.Time.Clock();
 }
 var frame = 0;
 var downloadOn = false;
