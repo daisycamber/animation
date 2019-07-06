@@ -3,8 +3,8 @@ var maxParticleSize = 100;
 var maxParticleSpeed = 25;
 var config = {
     type: Phaser.CANVAS,
-    width: 3000,
-    height: 3000,
+    width: 1920,
+    height: 1080,
     scene: {
         preload: preload,
         create: create,
