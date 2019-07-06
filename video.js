@@ -17,14 +17,14 @@ function preload ()
     this.load.image('test', 'test.png');
     
 }
-
+var maxParticleSpeed = 20;
 var circles = [];
 function create ()
 {
     for(var i = 0; i < 1000; i++){
         circles[i] = this.add.circle(Phaser.Math.Between(0, 3000), Phaser.Math.Between(0, 3000), Phaser.Math.Between(1,20), 0x6666ff);
-        circles[i].xv = Phaser.Math.Between(-2,2);
-        circles[i].yv = Phaser.Math.Between(-2,2);
+        circles[i].xv = Phaser.Math.Between(-maxParticleSpeed,maxParticleSpeed);
+        circles[i].yv = Phaser.Math.Between(-maxParticleSpeed,maxParticleSpeed);
     }
 }
 var frame = 0;
