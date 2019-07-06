@@ -35,10 +35,9 @@ function update ()
 {
     if(this.game.time.totalElapsedSeconds() - lastElapsedSeconds > bps) {
         for(var i = 0; i < circles.length; i++){
-                circles[i].y=1500;
-            }
+            circles[i].y=1500;
         }
-        lastElapsedSeconds = this.game.time.totalElapsedSeconds()
+        lastElapsedSeconds = this.game.time.totalElapsedSeconds();
     }
     else {  
         if(frame < 60 * 60){
