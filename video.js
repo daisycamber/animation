@@ -37,7 +37,6 @@ var fpb = (60*30)/126; // frames per beat
 var lastBeat = 0;
 function update ()
 {
-    console.log(frame);
     if(frame > lastBeat + fpb) {
         for(var i = 0; i < circles.length; i++){
             circles[i].y=1500;
