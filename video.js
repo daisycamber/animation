@@ -25,21 +25,21 @@ function create ()
         circles[i] = this.add.circle(Phaser.Math.Between(0, 3000), Phaser.Math.Between(0, 3000), Phaser.Math.Between(1,20), 0x6666ff);
         circles[i].xv = Phaser.Math.Between(-2,2);
     }
-    var clock = new Phaser.Time.Clock();
 }
 var frame = 0;
 var downloadOn = false;
 // for EDM visualization
 var bpm = 100;
 var bps = 100/60 // beats per second
-var lastElapsedSeconds = 0;
+var bpf = 100/30// beats per frame
+var lastBeat = 0;
 function update ()
 {
-    if(clock.now - lastElapsedSeconds > bps * 1000) {
+    if(frame > lastBeat + bpf) {
         for(var i = 0; i < circles.length; i++){
             circles[i].y=1500;
         }
-        lastElapsedSeconds = clock.now;
+        lastBeat = frame;
     }
     if(frame < 60 * 60){
         for(var i = 0; i < circles.length; i++){
