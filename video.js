@@ -17,19 +17,21 @@ function preload ()
     this.load.image('test', 'test.png');
 }
 
+var circles = [];
 function create ()
 {
+    for(var i = 0; i < 100; i++){
+        circles[i] = this.add.circle(Phaser.Math.Between(0, 3000), Phaser.Math.Between(0, 3000), Phaser.Math.Between(1,20), 0x6666ff);
+    }
 }
 var frame = 0;
 var downloadOn = false;
-var circles = [];
+
 function update ()
 {
-    
-    if(frame < 100){
-        circles.add(this.add.circle(Phaser.Math.Between(0, 3000), Phaser.Math.Between(0, 3000), Phaser.Math.Between(1,20), 0x6666ff));
+    if(frame < 60 * 100){
         for(var i = 0; i < circles.length; i++){
-            circles[i].y+=2;
+            circles[i].y+=Phaser.Math.Between(1,3);
             if(circles[i].y>3000+20){
                 circles[i].y=-20;
             }
