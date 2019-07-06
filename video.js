@@ -24,6 +24,7 @@ function preload ()
 var circles = [];
 function create ()
 {
+    console.log(Phaser.Math.Between(0xCCCCCC,0xFFFFFF).toString(16));
     for(var i = 0; i < 100; i++){
         circles[i] = this.add.circle(Phaser.Math.Between(0, 3000), 1500, Phaser.Math.Between(minParticleSize,maxParticleSize),Phaser.Math.Between(0xCCCCCC,0xFFFFFF).toString(16));
         circles[i].xv = Phaser.Math.Between(-maxParticleSpeed,maxParticleSpeed);
