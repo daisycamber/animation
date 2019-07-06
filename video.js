@@ -26,10 +26,11 @@ function create ()
     }
 }
 var frame = 0;
-var downloadOn = true;
+var downloadOn = false;
 
 function update ()
 {
+    console.log(game.loop.actualFps);
     if(frame < 60 * 60){
         for(var i = 0; i < circles.length; i++){
             circles[i].y+=Phaser.Math.Between(1,3);
