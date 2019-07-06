@@ -41,14 +41,13 @@ var bpm = 126;
 var bps = 126/60 // beats per second
 var bpf = 126/30// beats per frame
 var fpb = (60*60)/bpm; // frames per beat
+var halfBeat = fpb/2;
 var lastBeat = 0;
+var lastHalfBeat = 0;
 function update ()
 {
     if(frame > lastBeat + fpb) {
         for(var i = 0; i < circles.length; i++){
-            rings[i].radius=50 + (5 * i);
-            rings[i].depth = rings.length - i;
-            rings[i].setFillStyle("0x"+Phaser.Math.Between(0xCCCCCC,0xFFFFFF).toString(16));
             circles[i].depth = circles.length - i;
             circles[i].y=height/2;
             circles[i].xv = Phaser.Math.Between(-maxParticleSpeed,maxParticleSpeed);
@@ -56,6 +55,14 @@ function update ()
             
         }
         lastBeat = frame;
+    }
+    if(frame > lastHalfBeat + halfBeat) {
+        for(var i = 0; i < rings.length; i++){
+            rings[i].radius=50 + (5 * i);
+            rings[i].depth = rings.length - i;
+            rings[i].setFillStyle("0x"+Phaser.Math.Between(0x999999,0xFFFFFF).toString(16));
+        }
+        lastHalfBeat = frame;
     }
     else{
         for(var i = 0; i < circles.length; i++){
