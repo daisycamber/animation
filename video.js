@@ -22,7 +22,7 @@ function create ()
 {
     for(var i = 0; i < 1000; i++){
         circles[i] = this.add.circle(Phaser.Math.Between(0, 3000), Phaser.Math.Between(0, 3000), Phaser.Math.Between(1,20), 0x6666ff);
-        circles[i].xv = Phaser.Math.Between(-5,5);
+        circles[i].xv = Phaser.Math.Between(-2,2);
     }
 }
 var frame = 0;
