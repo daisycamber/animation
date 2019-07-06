@@ -32,6 +32,7 @@ function update ()
     if(frame < 60 * 100){
         for(var i = 0; i < circles.length; i++){
             circles[i].y+=Phaser.Math.Between(1,3);
+            circles[i].y+=Phaser.Math.Between(-1,1);
             if(circles[i].y>3000+20){
                 circles[i].y=-20;
             }
