@@ -47,7 +47,7 @@ function update ()
     if(frame > lastBeat + fpb) {
         // bring last ring to front
         rings[currentRing].radius=50;
-        rings[currentRing].depth +=200 0;
+        rings[currentRing].depth +=200;
         currentRing++;
         if(currentRing > 199) currentRing = 0;
         for(var i = 0; i < circles.length; i++){
