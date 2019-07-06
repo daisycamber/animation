@@ -39,20 +39,18 @@ function update ()
         }
         lastElapsedSeconds = this.game.time.totalElapsedSeconds();
     }
-    else {  
-        if(frame < 60 * 60){
-            for(var i = 0; i < circles.length; i++){
-                circles[i].y+=(circles[i].width-20)/5
-                circles[i].x+=circles[i].xv;
-                if(circles[i].y>3000+20){
-                    circles[i].y=-20;
-                }
+    if(frame < 60 * 60){
+        for(var i = 0; i < circles.length; i++){
+            circles[i].y+=(circles[i].width-20)/5
+            circles[i].x+=circles[i].xv;
+            if(circles[i].y>3000+20){
+                circles[i].y=-20;
             }
-            if(downloadOn){
-                var image    = this.game.canvas.toDataURL();
-                download(image, frame + ".png", "image/png");
-            }
-            frame++;
         }
+        if(downloadOn){
+            var image    = this.game.canvas.toDataURL();
+            download(image, frame + ".png", "image/png");
+        }
+        frame++;
     }
 }
