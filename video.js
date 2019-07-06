@@ -22,11 +22,18 @@ function create ()
 }
 var frame = 0;
 var downloadOn = false;
+var circles = new Array();
 function update ()
 {
     
-    if(frame < 10){
-         this.add.circle(Phaser.Math.Between(0, 3000), Phaser.Math.Between(0, 3000), 80, 0x6666ff);
+    if(frame < 100){
+        circles.add(this.add.circle(Phaser.Math.Between(0, 3000), Phaser.Math.Between(0, 3000), Phaser.Math.Between(1,20), 0x6666ff));
+        for(var i = 0; i < circles.length; i++){
+            circles[i].y+=2;
+            if(circles[i].y>3000+20){
+                circles[i].y=-20;
+            }
+        }
         if(downloadOn){
             var image    = this.game.canvas.toDataURL();
             download(image, frame + ".png", "image/png");
