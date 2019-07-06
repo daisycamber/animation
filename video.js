@@ -44,7 +44,7 @@ function update ()
 {
     if(frame > lastBeat + fpb) {
         for(var i = 0; i < circles.length; i++){
-            circles[i].y=size/2;
+            circles[i].y=height/2;
             circles[i].xv = Phaser.Math.Between(-maxParticleSpeed,maxParticleSpeed);
             circles[i].yv = Phaser.Math.Between(-maxParticleSpeed,maxParticleSpeed);
         }
