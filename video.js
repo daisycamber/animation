@@ -21,7 +21,7 @@ var maxParticleSpeed = 50;
 var circles = [];
 function create ()
 {
-    for(var i = 0; i < 1000; i++){
+    for(var i = 0; i < 200; i++){
         circles[i] = this.add.circle(Phaser.Math.Between(0, 3000), Phaser.Math.Between(0, 3000), Phaser.Math.Between(1,50), 0xffffff);
         circles[i].xv = Phaser.Math.Between(-maxParticleSpeed,maxParticleSpeed);
         circles[i].yv = Phaser.Math.Between(-maxParticleSpeed,maxParticleSpeed);
