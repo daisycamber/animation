@@ -24,6 +24,7 @@ function create ()
     for(var i = 0; i < 1000; i++){
         circles[i] = this.add.circle(Phaser.Math.Between(0, 3000), Phaser.Math.Between(0, 3000), Phaser.Math.Between(1,20), 0x6666ff);
         circles[i].xv = Phaser.Math.Between(-2,2);
+        circles[i].yv = Phaser.Math.Between(-2,2);
     }
 }
 var frame = 0;
@@ -44,10 +45,19 @@ function update ()
     }
     if(frame < 60 * 60){
         for(var i = 0; i < circles.length; i++){
-            circles[i].y+=(circles[i].width-20)/5
             circles[i].x+=circles[i].xv;
+            circles[i].y+=circles[i].yv;
             if(circles[i].y>3000+20){
                 circles[i].y=-20;
+            }
+            if(circles[i].y<20){
+                circles[i].y=3020;
+            }
+            if(circles[i].x>3000+20){
+                circles[i].x=-20;
+            }
+            if(circles[i].x<20){
+                circles[i].x=3020;
             }
         }
         if(downloadOn){
