@@ -48,6 +48,7 @@ function update ()
         for(var i = 0; i < circles.length; i++){
             rings[i].radius=50 + (5 * i);
             rings[i].depth = rings.length - i;
+            rings[i].setFillStyle("0x"+Phaser.Math.Between(0xCCCCCC,0xFFFFFF).toString(16));
             circles[i].depth = circles.length - i;
             circles[i].y=height/2;
             circles[i].xv = Phaser.Math.Between(-maxParticleSpeed,maxParticleSpeed);
