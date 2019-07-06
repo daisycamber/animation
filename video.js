@@ -15,7 +15,6 @@ function preload ()
 {
     this.game.canvas.id = 'canvas';
     this.load.image('test', 'test.png');
-    this.physics.world.setFPS(30);
 }
 
 var circles = [];
