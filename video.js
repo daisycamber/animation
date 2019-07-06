@@ -33,11 +33,11 @@ var bps = 100/60 // beats per second
 var lastElapsedSeconds = 0;
 function update ()
 {
-    if(this.game.time.totalElapsedSeconds() - lastElapsedSeconds > bps) {
+    if(game.time.totalElapsedSeconds() - lastElapsedSeconds > bps) {
         for(var i = 0; i < circles.length; i++){
             circles[i].y=1500;
         }
-        lastElapsedSeconds = this.game.time.totalElapsedSeconds();
+        lastElapsedSeconds = game.time.totalElapsedSeconds();
     }
     if(frame < 60 * 60){
         for(var i = 0; i < circles.length; i++){
