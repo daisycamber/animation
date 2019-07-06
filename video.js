@@ -22,12 +22,13 @@ function preload ()
     this.load.image('test', 'test.png');
     
 }
-
+var rings = [];// .depth = NUMBER
 var circles = [];
 function create ()
 {
     for(var i = 0; i < 200; i++){
         circles[i] = this.add.circle(Phaser.Math.Between(0, width), height/2, Phaser.Math.Between(minParticleSize,maxParticleSize),"0x"+Phaser.Math.Between(0xCCCCCC,0xFFFFFF).toString(16));
+        rings[i] = this.add.circle(width/2, height/2, height/(i/100 + 1),"0x"+Phaser.Math.Between(0xCCCCCC,0xFFFFFF).toString(16));
         circles[i].xv = Phaser.Math.Between(-maxParticleSpeed,maxParticleSpeed);
         circles[i].yv = Phaser.Math.Between(-maxParticleSpeed,maxParticleSpeed);
     }
@@ -47,6 +48,7 @@ function update ()
             circles[i].y=height/2;
             circles[i].xv = Phaser.Math.Between(-maxParticleSpeed,maxParticleSpeed);
             circles[i].yv = Phaser.Math.Between(-maxParticleSpeed,maxParticleSpeed);
+            rings[i].width = rings[i].width + 5;
         }
         lastBeat = frame;
     }
