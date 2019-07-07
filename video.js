@@ -1,6 +1,6 @@
 var minParticleSize = 1;
 var maxParticleSpeed = 10;
-var width = 5334;//1920;
+var width = 3000;//1920;
 var height = 3000;//1080;
 var maxParticleSize = width/30;
 var config = {
