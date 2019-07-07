@@ -61,7 +61,7 @@ function update ()
     }
     if(frame > lastHalfBeat + halfBeat + fpb) {
         for(var i = 0; i < rings.length; i++){
-            rings[i].radius=50 + (5 * i);
+            rings[i].radius=50 + (22 * i);
             rings[i].depth = rings.length - i;
             rings[i].setFillStyle("0x"+Phaser.Math.Between(0x999999,0xFFFFFF).toString(16));
         }
