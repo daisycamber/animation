@@ -57,15 +57,12 @@ function update ()
             circles[i].yv = Phaser.Math.Between(-maxParticleSpeed,maxParticleSpeed);
             
         }
-        lastBeat = frame;
-        lastHalfBeat = frame;
-    } else if(frame > lastHalfBeat + halfBeat) {
         for(var i = 0; i < rings.length; i++){
             rings[i].radius=50 + (22 * i);
             rings[i].depth = rings.length - i;
             rings[i].setFillStyle("0x"+Phaser.Math.Between(0x999999,0xFFFFFF).toString(16));
         }
-        lastHalfBeat = frame;
+        lastBeat = frame;
     }
     else{
         for(var i = 0; i < rings.length; i++){
