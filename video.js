@@ -36,6 +36,19 @@ function create ()
         circles[i].yv = Phaser.Math.Between(-maxParticleSpeed,maxParticleSpeed);
     }
     
+    audio = new Audio();
+    context = new (window.AudioContext || window.webkitAudioContext)();
+    analyser = context.createAnalyser();
+    
+    audio.src = "Portals.mp3"; // the source path
+    source = context.createMediaElementSource(audio);
+    source.connect(analyser);
+    analyser.connect(context.destination);
+ 
+    
+    frequency_array = new Uint8Array(analyser.frequencyBinCount);
+    
+    audio.play();
 }
 var frame = 0;
 var downloadOn = false;
