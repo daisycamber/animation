@@ -68,8 +68,10 @@ function update ()
         lastHalfBeat = frame;
     }
     else{
-        for(var i = 0; i < circles.length; i++){
+        for(var i = 0; i < rings.length; i++){
             rings[i].radius = rings[i].radius + 5; // Make ring bigger
+        }
+        for(var i = 0; i < circles.length; i++){
             circles[i].x+=circles[i].xv;
             circles[i].y+=circles[i].yv;
             if(circles[i].y>height+50){
