@@ -58,8 +58,7 @@ function update ()
             
         }
         lastBeat = frame;
-    }
-    if(frame > lastHalfBeat + halfBeat + fpb) {
+    } else if(frame > lastHalfBeat + halfBeat) {
         for(var i = 0; i < rings.length; i++){
             rings[i].radius=50 + (22 * i);
             rings[i].depth = rings.length - i;
