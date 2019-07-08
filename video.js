@@ -26,12 +26,13 @@ var rings = [];// .depth = NUMBER
 var circles = [];
 function create ()
 {
-    graphics.lineStyle(5, 0xFF00FF, 1.0);
-    graphics.beginPath();
-    graphics.moveTo(100, 100);
-    graphics.lineTo(200, 200);
-    graphics.closePath();
-    graphics.strokePath();
+    // creating my line
+    const line = new Phaser.Geom.Line(
+      0,0,1920,1080
+    );
+
+    // in Scene.update()
+    this.graphics.strokeLineShape(line)
     
     audio = new Audio();
     context = new (window.AudioContext || window.webkitAudioContext)();
