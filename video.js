@@ -40,6 +40,7 @@ function draw(startX, startY, len, angle) {
 }
 function create ()
 {
+    this.cameras.main.setBackgroundColor("0xffffff");
     // creating my line
     var path = new Phaser.Curves.Path(50, 500);
 
