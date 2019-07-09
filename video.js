@@ -29,6 +29,7 @@ var dataArray;
 var barWidth;
 var analyser;
 var graphics;
+var audio;
 
 var bars = [];
 
@@ -77,6 +78,7 @@ function move(){
     graphics.clear();
     graphics.fillStyle("0x000000");
     analyser.getByteFrequencyData(dataArray);
+    audio.currentTime = frame/60;
     for (var i = 0; i < analyser.frequencyBinCount; i++) {
         bars[i].height = dataArray[i] * 2;
         graphics.fillRectShape(bars[i]);
