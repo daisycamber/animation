@@ -92,7 +92,13 @@ function create ()
     analyser.connect(context.destination);
  
     
-    frequency_array = new Uint8Array(analyser.frequencyBinCount);
+    var dataArray = new Uint8Array(analyser.frequencyBinCount);
+    
+    analyser.getByteFrequencyData(dataArray);
+    
+    for (var i = 0; i < bufferLength; i++) {
+        console.log(dataArray[i]);
+    }
     
     audio.play();
 }
