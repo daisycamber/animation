@@ -61,6 +61,9 @@ function create ()
         graphics.fillRectShape(bars[i]);
     }
     
+    graphics.fillStyle("0x000000");
+        graphics.fillRectShape(new Phaser.Geom.Rectangle(0, 0, 100, 100);
+    
     
     audio.play();
 }
