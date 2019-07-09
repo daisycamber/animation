@@ -33,6 +33,7 @@ function drawLine(x,y,xx,xy, angle){
 
 var dataArray;
 var barWidth;
+var analyser;
 
 var bars = [];
 
