@@ -63,7 +63,7 @@ function create ()
     // generate bars
     for (var i = 0; i < analyser.frequencyBinCount; i++) {
         bars[i] = new Phaser.Geom.Rectangle(i * barWidth, 0, barWidth, barWidth);
-        graphics.fillStyle="0x000000"
+        graphics.fillStyle("0x000000");
         graphics.fillRectShape(bars[i]);
     }
     
