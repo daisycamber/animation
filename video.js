@@ -96,7 +96,7 @@ function create ()
     
     analyser.getByteFrequencyData(dataArray);
     
-    for (var i = 0; i < bufferLength; i++) {
+    for (var i = 0; i < analyser.frequencyBinCount; i++) {
         console.log(dataArray[i]);
     }
     
