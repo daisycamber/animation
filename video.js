@@ -77,8 +77,8 @@ var lastHalfBeat = 0;
 function move(){
     graphics.clear();
     graphics.fillStyle("0x000000");
-    analyser.getByteFrequencyData(dataArray);
     audio.currentTime = frame/60;
+    analyser.getByteFrequencyData(dataArray);
     for (var i = 0; i < analyser.frequencyBinCount; i++) {
         bars[i].height = dataArray[i] * 2;
         graphics.fillRectShape(bars[i]);
