@@ -1,4 +1,4 @@
-// version 0.3
+// version 0.4
 var videoLength = 3.2;
 var minParticleSize = 1;
 var maxParticleSpeed = 10;
@@ -61,7 +61,7 @@ function create ()
         bars[i] = new Phaser.Geom.Rectangle(i * barWidth, 0, barWidth, barWidth);
         graphics.fillRectShape(bars[i]);
     }
-    //audio.play();
+    audio.play();
 }
 var frame = 0;
 var downloadOn = true;
