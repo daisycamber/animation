@@ -24,16 +24,34 @@ function preload ()
 var currentRing = 0;
 var rings = [];// .depth = NUMBER
 var circles = [];
+
+function draw(startX, startY, len, angle) {
+    path.x = startX;
+    path.y = startY;
+    path.lineTo(0,-len);
+  if(len < 10) {
+    return;
+  }
+  
+  draw(0, -len, len*0.8, -15);
+  draw(0, -len, len*0.8, 15);
+  
+  ctx.restore();
+}
 function create ()
 {
     // creating my line
-    var path = path = new Phaser.Curves.Path(50, 500);
+    var path = new Phaser.Curves.Path(50, 500);
 
     path.splineTo([ 164, 446, 274, 542, 412, 457, 522, 541, 664, 464 ]);
 
     path.lineTo(700, 300);
 
     path.lineTo(600, 350);
+    
+    draw(350,600,120,0);
+    
+    
     
     audio = new Audio();
     context = new (window.AudioContext || window.webkitAudioContext)();
