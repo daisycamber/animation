@@ -36,8 +36,6 @@ function draw(startX, startY, len, angle) {
   
   draw(0, -len, len*0.8, -15);
   draw(0, -len, len*0.8, 15);
-  
-  ctx.restore();
 }
 function create ()
 {
