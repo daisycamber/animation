@@ -1,4 +1,4 @@
-// version 0.4
+// version 0.5
 var videoLength = 3.2;
 var minParticleSize = 1;
 var maxParticleSpeed = 10;
@@ -79,6 +79,7 @@ function move(){
     graphics.clear();
     graphics.fillStyle("0x000000");
     context.currentTime = frame/60;
+    audio.currentTime = frame/60;
     analyser.getByteFrequencyData(dataArray);
     for (var i = 0; i < analyser.frequencyBinCount; i++) {
         bars[i].height = dataArray[i] * 2;
