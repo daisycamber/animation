@@ -84,7 +84,7 @@ function move(){
 }
 // Called every beat
 function beat(){
-    
+    lastBeat = frame;
 }
 function update ()
 {
