@@ -80,7 +80,7 @@ function create ()
     graphics = this.add.graphics();
     graphics.lineStyle(2, 0x000000, 1);
     
-    drawTree(1920/2,1080,1080-trunkHeight, - Math.PI/2, branchingDepth);
+    drawTree(1920/2,1080,1920/2,1080-trunkHeight, - Math.PI/2, branchingDepth);
     
     audio = new Audio();
     context = new (window.AudioContext || window.webkitAudioContext)();
