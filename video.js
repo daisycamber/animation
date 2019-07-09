@@ -61,7 +61,7 @@ function create ()
         bars[i] = new Phaser.Geom.Rectangle(i * barWidth, 0, barWidth, barWidth);
         graphics.fillRectShape(bars[i]);
     }
-    audio.play();
+    //audio.play();
 }
 var frame = 0;
 var downloadOn = true;
