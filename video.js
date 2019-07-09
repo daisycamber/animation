@@ -62,7 +62,7 @@ function create ()
     }
     
     graphics.fillStyle("0x000000");
-        graphics.fillRectShape(new Phaser.Geom.Rectangle(0, 0, 100, 100);
+        graphics.fillRectShape(new Phaser.Geom.Rectangle(0, 0, 100, 100));
     
     
     audio.play();
