@@ -1,4 +1,4 @@
-// version 0.2
+// version 0.3
 var videoLength = 3.2;
 var minParticleSize = 1;
 var maxParticleSpeed = 10;
