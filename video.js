@@ -27,60 +27,19 @@ var circles = [];
 var graphics;
 
 function drawLine(x,y,xx,xy, angle){
-    var path = new Phaser.Curves.Path(x, y);
-    path.lineTo(xx, xy);
-    path.draw(graphics);
+    return new Phaser.Geom.Line(200, 300, 600, 300);
 }
     
-var centerX = 1920/2;
-
-var trunkHeight = 100;
-var branchLengthRatio = 0.75;
-var branchAngleDifference = 0.27;
-var branchingDepth = 10;
-
-function drawTree(x1, y1, x2, y2, branchLength,
-                  branchAngle, depth){
-  if(depth == 0)
-    return;
-  else{
-    drawLine(x1,x2,y1,y2);
-    branchLength *= branchLengthRatio;
-    
-    function branch(angle){
-      var branchX2 = x2 + branchLength * Math.cos(angle);
-      var branchY2 = y2 + branchLength * Math.sin(angle);
-      drawTree(x2, y2, branchX2, branchY2, branchLength,
-               angle, depth - 1);
-    }
-    
-    // Right branch
-    branch(branchAngle + branchAngleDifference);
-    
-    // Left branch
-    branch(branchAngle - branchAngleDifference);
-  }
-}
-
-
-/*
-canvas.addEventListener("mousemove",function(e){
-  branchLengthRatio = e.x / 300;
-  branchAngleDifference = e.y / canvas.height * Math.PI;
-  redrawTree();
-  console.log("branchLengthRatio = "+branchLengthRatio);
-  console.log("branchAngleDifference = "+branchAngleDifference);
-});*/
 
 var dataArray;
+
+var bars = [];
 
 function create ()
 {
     this.cameras.main.setBackgroundColor("0xffffff");
     graphics = this.add.graphics();
     graphics.lineStyle(2, 0x000000, 1);
-    
-    drawTree(1920/2,1080,1920/2,1080-trunkHeight,trunkHeight * branchLengthRatio, - Math.PI/2, branchingDepth);
     
     audio = new Audio();
     context = new (window.AudioContext || window.webkitAudioContext)();
@@ -97,11 +56,16 @@ function create ()
     analyser.getByteFrequencyData(dataArray);
     console.log("Frequency bin count is " + analyser.frequencyBinCount);
     
+    var barWidth = 1920/analyser.frequencyBinCount;
+    
     for (var i = 0; i < analyser.frequencyBinCount; i++) {
         //console.log(dataArray[i]);
+        bars[i] = new Phaser.Geom.Rectangle(i * barWidth, 0, barWidth, 0);
     }
     
     audio.play();
+    
+    
 }
 var frame = 0;
 var downloadOn = false;
@@ -117,7 +81,10 @@ var lastHalfBeat = 0;
 // Called every frame except the beat
 function move(){
     analyser.getByteFrequencyData(dataArray);
-    console.log(dataArray[0]);
+    for (var i = 0; i < analyser.frequencyBinCount; i++) {
+        bars[i] = new Phaser.Geom.Rectangle(i * barWidth, 0, barWidth, dataArray[i]/10);
+    }
+    
 }
 // Called every beat
 function beat(){
