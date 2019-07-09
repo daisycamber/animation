@@ -44,7 +44,6 @@ function drawTree(x1, y1, x2, y2, branchLength,
   if(depth == 0)
     return;
   else{
-    c.beginPath();
     drawLine(x1,x2,y1,y2);
     branchLength *= branchLengthRatio;
     
@@ -63,17 +62,6 @@ function drawTree(x1, y1, x2, y2, branchLength,
   }
 }
 
-function redrawTree(){
-  
-  c.clearRect(0,0, canvas.width, canvas.height);
-  
-  var x1 = centerX;
-  var y1 = canvas.height;
-  var x2 = centerX;
-  var y2 = canvas.height - trunkHeight;
-  drawTree(x1, y1, x2, y2, trunkHeight,
-           - Math.PI / 2, branchingDepth);
-}
 
 /*
 canvas.addEventListener("mousemove",function(e){
@@ -93,7 +81,7 @@ function create ()
     graphics.lineStyle(2, 0x000000, 1);
     
     
-    redrawTree();
+    drawTree();
     
     audio = new Audio();
     context = new (window.AudioContext || window.webkitAudioContext)();
