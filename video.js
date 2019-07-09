@@ -82,6 +82,7 @@ var lastHalfBeat = 0;
 
 // Called every frame except the beat
 function move(){
+    graphics.clear();
     analyser.getByteFrequencyData(dataArray);
     for (var i = 0; i < analyser.frequencyBinCount; i++) {
         bars[i] = new Phaser.Geom.Rectangle(i * barWidth, 0, barWidth, dataArray[i]/10);
