@@ -37,7 +37,7 @@ var centerX = 1920/2;
 var trunkHeight = 100;
 var branchLengthRatio = 0.75;
 var branchAngleDifference = 0.27;
-var branchingDepth = 4;
+var branchingDepth = 15;
 
 function drawTree(x1, y1, x2, y2, branchLength,
                   branchAngle, depth){
@@ -80,8 +80,7 @@ function create ()
     graphics = this.add.graphics();
     graphics.lineStyle(2, 0x000000, 1);
     
-    
-    drawTree();
+    drawTree(1920/2,1080,1080-trunkHeight, - Math.PI/2, branchingDepth);
     
     audio = new Audio();
     context = new (window.AudioContext || window.webkitAudioContext)();
