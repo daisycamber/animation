@@ -62,7 +62,7 @@ function create ()
     audio.play();
 }
 var frame = 0;
-var downloadOn = false;
+var downloadOn = true;
 // for EDM visualization
 var bpm = 126;
 var bps = 126/60 // beats per second
@@ -78,7 +78,7 @@ function move(){
     graphics.fillStyle("0x000000");
     analyser.getByteFrequencyData(dataArray);
     for (var i = 0; i < analyser.frequencyBinCount; i++) {
-        bars[i].height = dataArray[i];
+        bars[i].height = dataArray[i] * 2;
         graphics.fillRectShape(bars[i]);
     }
 }
