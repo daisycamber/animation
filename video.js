@@ -81,6 +81,7 @@ function move(){
     analyser.getByteFrequencyData(dataArray);
     for (var i = 0; i < analyser.frequencyBinCount; i++) {
         var color = Phaser.Display.Color.GetColor(dataArray[i]/2, dataArray[i], 0);
+        graphics.fillStyle(color);
         bars[i].height = dataArray[i] * 1080/255;
         graphics.fillRectShape(bars[i]);
     }
