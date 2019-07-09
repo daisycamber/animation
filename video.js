@@ -32,6 +32,7 @@ function drawLine(x,y,xx,xy, angle){
     
 
 var dataArray;
+var barWidth;
 
 var bars = [];
 
@@ -56,7 +57,7 @@ function create ()
     analyser.getByteFrequencyData(dataArray);
     console.log("Frequency bin count is " + analyser.frequencyBinCount);
     
-    var barWidth = 1920/analyser.frequencyBinCount;
+    barWidth = 1920/analyser.frequencyBinCount;
     
     for (var i = 0; i < analyser.frequencyBinCount; i++) {
         //console.log(dataArray[i]);
