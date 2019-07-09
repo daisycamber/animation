@@ -40,6 +40,8 @@ function draw(startX, startY, len, angle) {
 function create ()
 {
     this.cameras.main.setBackgroundColor("0xffffff");
+    graphics = this.add.graphics();
+    graphics.lineStyle(2, 0x000000, 1);
     // creating my line
     path = new Phaser.Curves.Path(50, 500);
 
@@ -49,8 +51,8 @@ function create ()
 
     path.lineTo(600, 350);
     
-    //draw(350,600,120,0);
-    
+    draw(350,600,120,0);
+    path.draw(graphics);
     
     
     audio = new Audio();
