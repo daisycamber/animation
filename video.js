@@ -34,15 +34,14 @@ function drawLine(x,y,xx,xy, angle){
 var dataArray;
 var barWidth;
 var analyser;
+var graphics;
 
 var bars = [];
 
 function create ()
 {
     this.cameras.main.setBackgroundColor("0xffffff");
-    graphics = this.add.graphics();
-    graphics.lineStyle(2, 0x000000, 1);
-    graphics.fillStyle(2, 0x000000, 1);
+    graphics = this.add.graphics({ lineStyle: { width: 2, color: 0xaa0000 }, fillStyle: { color: 0x0000aa } });
     
     audio = new Audio();
     context = new (window.AudioContext || window.webkitAudioContext)();
