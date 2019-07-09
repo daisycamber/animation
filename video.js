@@ -90,11 +90,12 @@ function create ()
     source = context.createMediaElementSource(audio);
     source.connect(analyser);
     analyser.connect(context.destination);
- 
+    analyser.fftSize = 256;
     
     dataArray = new Uint8Array(analyser.frequencyBinCount);
     
     analyser.getByteFrequencyData(dataArray);
+    console.log("Frequency bin count is " + analyser.frequencyBinCount);
     
     for (var i = 0; i < analyser.frequencyBinCount; i++) {
         //console.log(dataArray[i]);
