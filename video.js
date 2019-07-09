@@ -24,6 +24,7 @@ function preload ()
 var currentRing = 0;
 var rings = [];// .depth = NUMBER
 var circles = [];
+var path;
 
 function draw(startX, startY, len, angle) {
     path.x = startX;
@@ -42,7 +43,7 @@ function create ()
 {
     this.cameras.main.setBackgroundColor("0xffffff");
     // creating my line
-    var path = new Phaser.Curves.Path(50, 500);
+    path = new Phaser.Curves.Path(50, 500);
 
     path.splineTo([ 164, 446, 274, 542, 412, 457, 522, 541, 664, 464 ]);
 
