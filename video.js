@@ -34,9 +34,7 @@ function drawLine(x,y,xx,xy){
     
 
 function draw(startX, startY, len, angle) {
-    path.x = startX;
-    path.y = startY;
-    path.lineTo(0,-len);
+    drawLine(startY,startY,0,-len);
   if(len < 10) {
     return;
   }
