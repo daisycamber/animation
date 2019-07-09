@@ -42,6 +42,7 @@ function create ()
     this.cameras.main.setBackgroundColor("0xffffff");
     graphics = this.add.graphics();
     graphics.lineStyle(2, 0x000000, 1);
+    graphics.fillStyle(2, 0x000000, 1);
     
     audio = new Audio();
     context = new (window.AudioContext || window.webkitAudioContext)();
