@@ -57,7 +57,6 @@ function create ()
     // generate bars
     for (var i = 0; i < analyser.frequencyBinCount; i++) {
         bars[i] = new Phaser.Geom.Rectangle(i * barWidth, 0, barWidth, barWidth);
-        graphics.fillStyle("0x000000");
         graphics.fillRectShape(bars[i]);
     }
     audio.play();
@@ -75,9 +74,12 @@ var lastHalfBeat = 0;
 
 // Called every frame except the beat
 function move(){
+    graphics.clear();
+    graphics.fillStyle("0x000000");
     analyser.getByteFrequencyData(dataArray);
     for (var i = 0; i < analyser.frequencyBinCount; i++) {
         bars[i].height = dataArray[i];
+        graphics.fillRectShape(bars[i]);
     }
 }
 // Called every beat
