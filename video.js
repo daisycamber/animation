@@ -27,12 +27,13 @@ var circles = [];
 function create ()
 {
     // creating my line
-    const line = new Phaser.Geom.Line(
-      0,0,1920,1080
-    );
+    var path = path = new Phaser.Curves.Path(50, 500);
 
-    // in Scene.update()
-    this.graphics.strokeLineShape(line)
+    path.splineTo([ 164, 446, 274, 542, 412, 457, 522, 541, 664, 464 ]);
+
+    path.lineTo(700, 300);
+
+    path.lineTo(600, 350);
     
     audio = new Audio();
     context = new (window.AudioContext || window.webkitAudioContext)();
