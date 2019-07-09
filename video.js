@@ -24,12 +24,6 @@ function preload ()
 var currentRing = 0;
 var rings = [];// .depth = NUMBER
 var circles = [];
-var graphics;
-
-function drawLine(x,y,xx,xy, angle){
-    return new Phaser.Geom.Line(200, 300, 600, 300);
-}
-    
 
 var dataArray;
 var barWidth;
