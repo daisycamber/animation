@@ -24,7 +24,14 @@ function preload ()
 var currentRing = 0;
 var rings = [];// .depth = NUMBER
 var circles = [];
-var path;
+var graphics;
+
+function drawLine(x,y,xx,xy){
+    var path = new Phaser.Curves.Path(x, y);
+    path.lineTo(xx, xy);
+    path.draw(graphics);
+}
+    
 
 function draw(startX, startY, len, angle) {
     path.x = startX;
@@ -42,17 +49,10 @@ function create ()
     this.cameras.main.setBackgroundColor("0xffffff");
     graphics = this.add.graphics();
     graphics.lineStyle(2, 0x000000, 1);
-    // creating my line
-    path = new Phaser.Curves.Path(50, 500);
-
-    path.splineTo([ 164, 446, 274, 542, 412, 457, 522, 541, 664, 464 ]);
-
-    path.lineTo(700, 300);
-
-    path.lineTo(600, 350);
+    drawLine(0,0,100,100);
     
     draw(350,600,120,0);
-    path.draw(graphics);
+    
     
     
     audio = new Audio();
