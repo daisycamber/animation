@@ -1,4 +1,4 @@
-// version 0.6
+// version 0.7
 var videoLength = 3.2;
 var minParticleSize = 1;
 var maxParticleSpeed = 10;
@@ -61,10 +61,10 @@ function create ()
         bars[i] = new Phaser.Geom.Rectangle(i * barWidth, 0, barWidth, barWidth);
         graphics.fillRectShape(bars[i]);
     }
-    //audio.play();
+    audio.play();
 }
 var frame = 0;
-var downloadOn = true;
+var downloadOn = false;
 // for EDM visualization
 var bpm = 126;
 var bps = 126/60 // beats per second
@@ -77,12 +77,11 @@ var lastHalfBeat = 0;
 // Called every frame except the beat
 function move(){
     graphics.clear();
-    graphics.fillStyle("0x000000");
-    context.currentTime = frame/60;
-    audio.currentTime = frame/60;
+    
     analyser.getByteFrequencyData(dataArray);
     for (var i = 0; i < analyser.frequencyBinCount; i++) {
-        bars[i].height = dataArray[i] * 2;
+        var color = Phaser.Display.Color.GetColor(dataArray[i]/2, dataArray[i], blue);
+        bars[i].height = dataArray[i] * 1080/255;
         graphics.fillRectShape(bars[i]);
     }
 }
