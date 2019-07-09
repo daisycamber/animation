@@ -72,7 +72,7 @@ canvas.addEventListener("mousemove",function(e){
   console.log("branchAngleDifference = "+branchAngleDifference);
 });*/
 
-
+var dataArray;
 
 function create ()
 {
@@ -92,12 +92,12 @@ function create ()
     analyser.connect(context.destination);
  
     
-    var dataArray = new Uint8Array(analyser.frequencyBinCount);
+    dataArray = new Uint8Array(analyser.frequencyBinCount);
     
     analyser.getByteFrequencyData(dataArray);
     
     for (var i = 0; i < analyser.frequencyBinCount; i++) {
-        console.log(dataArray[i]);
+        //console.log(dataArray[i]);
     }
     
     audio.play();
@@ -115,7 +115,8 @@ var lastHalfBeat = 0;
 
 // Called every frame except the beat
 function move(){
-    
+    analyser.getByteFrequencyData(dataArray);
+    console.log(dataArray[0]);
 }
 // Called every beat
 function beat(){
