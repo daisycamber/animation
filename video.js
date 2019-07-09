@@ -37,7 +37,7 @@ var centerX = 1920/2;
 var trunkHeight = 100;
 var branchLengthRatio = 0.75;
 var branchAngleDifference = 0.27;
-var branchingDepth = 3;
+var branchingDepth = 10;
 
 function drawTree(x1, y1, x2, y2, branchLength,
                   branchAngle, depth){
