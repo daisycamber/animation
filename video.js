@@ -49,7 +49,7 @@ function create ()
 
     path.lineTo(600, 350);
     
-    draw(350,600,120,0);
+    //draw(350,600,120,0);
     
     
     
