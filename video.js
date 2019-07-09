@@ -60,9 +60,14 @@ function create ()
     
     barWidth = 1920/analyser.frequencyBinCount;
     
+    // generate bars
+    for (var i = 0; i < analyser.frequencyBinCount; i++) {
+        bars[i] = new Phaser.Geom.Rectangle(i * barWidth, 0, barWidth, barWidth);
+        graphics.fillRectShape(bars[i]);
+    }
+    
+    
     audio.play();
-    
-    
 }
 var frame = 0;
 var downloadOn = false;
@@ -80,10 +85,8 @@ function move(){
     graphics.clear();
     analyser.getByteFrequencyData(dataArray);
     for (var i = 0; i < analyser.frequencyBinCount; i++) {
-        bars[i] = new Phaser.Geom.Rectangle(i * barWidth, 0, barWidth, dataArray[i]);
+        bars[i].height = dataArray[i];
     }
-    console.log(dataArray[0]);
-    
 }
 // Called every beat
 function beat(){
