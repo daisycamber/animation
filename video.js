@@ -61,7 +61,7 @@ function create ()
         bars[i] = new Phaser.Geom.Rectangle(i * barWidth, 0, barWidth, barWidth);
         graphics.fillRectShape(bars[i]);
     }
-    //audio.play();
+    audio.play();
 }
 var frame = 0;
 var downloadOn = true;
@@ -78,7 +78,7 @@ var lastHalfBeat = 0;
 function move(){
     graphics.clear();
     graphics.fillStyle("0x000000");
-    audio.currentTime = frame/60;
+    context.currentTime = frame/60;
     analyser.getByteFrequencyData(dataArray);
     for (var i = 0; i < analyser.frequencyBinCount; i++) {
         bars[i].height = dataArray[i] * 2;
